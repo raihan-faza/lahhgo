@@ -5,6 +5,10 @@ from django.contrib.auth.models import User
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     points = models.IntegerField()
+    alamat = models.CharField(max_length=200, default=None)
+
+    def __str__(self) -> str:
+        return self.user.first_name
 
 
 class Sampah(models.Model):
@@ -17,11 +21,17 @@ class Sampah(models.Model):
     tag = models.CharField(max_length=6, choices=tags)
     status = models.CharField(max_length=8, choices=stats)
 
+    def __str__(self) -> str:
+        return self.id
+
 
 class Invoice(models.Model):
     total_harga = models.IntegerField()
     alamat_asal = models.CharField(max_length=200)
     alamat_tujuan = models.CharField(max_length=200)
+
+    def __str__(self) -> str:
+        return self.id
 
 
 class Transactions(models.Model):
@@ -29,3 +39,6 @@ class Transactions(models.Model):
         Invoice, on_delete=models.CASCADE)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     sampah = models.OneToOneField(Sampah, on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return self.id
