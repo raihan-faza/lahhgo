@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Products{% endblock %} 
+{% block content %} {% include 'navbar.html' %}
+<div class="flex flex-col items-center">
+  <h1 class="text-3xl font-bold mt-10" style="color: #4f6f52">Sampah Anda</h1>
+  <div>
+    <div class='flex justify-between text-lg'>
+      <p class='font-bold'>Plastik</p>
+      <p style="color: #4f6f52" class='font-bold'>Lihat semuanya</p>
+    </div>
+    <br>
+    <hr class="bg-gray-400">
+      <div class="grid grid-cols-4 gap-4 mt-10">
+      {% for i in "x"|rjust:"4" %}
+        {% include 'cards.html' with path='botol.png' %}
+        {% endfor %}
+      </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div>
+    <div class='flex justify-between text-lg'>
+      <p class='font-bold'>Plastik</p>
+      <p style="color: #4f6f52" class='font-bold'>Lihat semuanya</p>
+    </div>
+    <br>
+    <hr class="bg-gray-400">
+      <div class="grid grid-cols-4 gap-4 mt-10">
+      {% for i in "x"|rjust:"4" %}
+        {% include 'cards.html' with path='marble.png' %}
+        {% endfor %}
+      </div>
+  </div>
+</div>
+{% endblock %}

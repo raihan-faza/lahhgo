@@ -108,6 +108,8 @@ def show_sampah(request):
         }
     )
 
+def show_products(request):
+    return render(request, "products.html", {})
 
 def generate_point(jumlah_sampah):
     # jumlah sampah dalam satuan kg
