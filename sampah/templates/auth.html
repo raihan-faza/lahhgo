@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{% endblock %}
+{% block content %}
+<nav style="color: #3A855D;" class="fixed font-bold text-xl mt-5 ml-10">LAHHGO</nav>
+<div class="flex w-screen min-h-screen justify-evenly items-center">
+  <div style="color: #3A855D;" style="width:20%;" class="flex flex-col h-auto">
+    <h1 class="text-lg">{% block greetings %}{% endblock %}</h1>
+    <br>
+    <form method="post" action="{{action_url}}" class="flex flex-col" style="width:295px;">
+      {% csrf_token %}
+      {% block form %}{% endblock %}
+      <br>
+      <button class="w-full text-white font-semibold p-1 rounded-md" style="background-color: #3A855D;"  type="submit">{% block button %}{% endblock %}</button>
+    <br>
+    <div class="flex items-center gap-1  flex-col">{% block text %}{% endblock %}</div>
+    </form>
+  </div>
+  <img style="width:30%;" src="{% static 'auth.png' %}" />
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "auth.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block greetings %}
+Welcome back to <strong>LAHHGO</strong>
+{% endblock %}
+
+{% block form %}
+
+<label for="username">Username</label>
+<input type="text" name="username" placeholder="Enter your username" class="p-2 rounded-md border border-gray-200">
+<br>
+<label for="password">Password</label>
+<input type="password" name="password" placeholder="Enter your password" class="p-2 rounded-md border border-gray-200" >
+{% endblock %}
+
+{% block button %}
+Login
+{% endblock %}
+
+{% block text %}
+<strong> Forgot Password? </strong>
+<p> Dont have an account? Register <strong><a href={% url 'register' %}>here</a></strong> </p>
+{% endblock %}

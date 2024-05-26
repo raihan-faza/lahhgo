@@ -1,0 +1,29 @@
+{% extends "auth.html" %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block greetings %}
+Hi there! Please create your <strong>LAHGOO account!</strong>
+{% endblock %}
+
+{% block form %}
+
+<label for="username">Username</label>
+<input type="text" name="username" placeholder="Enter your username" class="p-2 rounded-md border border-gray-200">
+<br>
+<label for="email">Email</label>
+<input type="email" name="email" placeholder="Enter your email" class="p-2 rounded-md border border-gray-200">
+<br>
+<label for="password">Password</label>
+<input type="password" name="password" placeholder="Enter your password" class="p-2 rounded-md border border-gray-200" >
+{% endblock %}
+
+{% block button %}
+Register
+{% endblock %}
+
+{% block text %}
+<p>Already have an account? <strong><a href={% url 'login' %}>Login</a></strong> </p>
+{% endblock %}
