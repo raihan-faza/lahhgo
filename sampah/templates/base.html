@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>{% block title %}LAHHGO {% endblock %}</title>
+    {% block css %}
+    <!-- Add your global CSS files here -->
+    {% endblock %}
+  </head>
+  <body>
+    <header>
+      <!-- Add your header here -->
+    </header>
+
+    <main>
+      {% block content %}
+      <!-- Content goes here -->
+      {% endblock %}
+    </main>
+
+    <footer>
+      <!-- Add your footer here -->
+    </footer>
+
+    {% block js %}
+    <!-- Add your global JS files here -->
+    {% endblock %}
+  </body>
+</html>

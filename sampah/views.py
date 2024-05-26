@@ -1,4 +1,4 @@
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from .models import (
     Customer,
     Sampah,
@@ -20,11 +20,7 @@ from django.core.serializers import serialize
 def index_sampah(request):
     kumpulan_sampah = Sampah.objects.filter(status="AVL")
     kumpulan_sampah = serialize('json', kumpulan_sampah)
-    return JsonResponse(
-        {
-            "kumpulan_sampah": kumpulan_sampah
-        }
-    )
+    return render(request, "index.html", {"kumpulan_sampah": kumpulan_sampah})
 
 
 @require_POST
@@ -171,8 +167,8 @@ def login(request):
         else:
             messages.error(request, "Login Failed")
             return redirect("/login")
+    return render(request, "login.html")
         
-
 def register(request):
     if request.method == "POST":
         username = request.POST.get("username")
@@ -180,5 +176,5 @@ def register(request):
         user = User.objects.create_user(username=username, password=password)
         user.save()
         return redirect("/login")
-    return JsonResponse({"message": "invalid request method"})
+    return render(request, "register.html")
     

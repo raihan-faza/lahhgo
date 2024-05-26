@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}LAHHGO{% endblock %}
+{% block content %}
+{% include "navbar.html" %}
+<div class="bg-blue-200 relative w-screen h-auto">
+    <img style="width: 100%" class="-right-1 absolute z-0" src="{% static 'landing_hero.png' %}" />
+    <h1 class="relative z-20">For a more sustainable future</h1>
+    <h2 class="relative z-20">lets preserve the earth together</h2>
+    <div class="relative z-20">
+        <button class="bg-white hover:bg-blue-700 text-green-500 font-bold py-2 px-4 rounded">Beli</button>
+        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Jual</button>
+    </div>
+</div>
+<div>
+    <h1>Produk daur ulang terlaris</h1>
+    <br/>
+    {% include "cards.html" %}
+
+</div>
+
+{% endblock %}
