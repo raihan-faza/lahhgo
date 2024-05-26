@@ -42,3 +42,15 @@ class Transactions(models.Model):
 
     def __str__(self) -> str:
         return self.id
+
+
+class InfoPenjemputan(models.Model):
+    nama_kontak = models.CharField(max_length=200)
+    no_kontak = models.CharField(max_length=200)
+    kode_pos = models.CharField(max_length=200)
+    email = models.CharField(max_length=200)
+    detail_lokasi = models.CharField(max_length=200)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return self.customer.user.first_name
