@@ -1,10 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+import jwt
 from .models import (
     Customer,
     Sampah
 )
 from django.contrib.auth.models import User
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import authenticate
+from django.contrib import messages
 
 
 def index_sampah(request):
@@ -62,3 +66,27 @@ def beli_sampah(request):
 
 def add_point(customer, sampah):
     return
+
+@csrf_exempt
+def login(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            messages.success(request, "Login Success")
+            return redirect("/")
+        else:
+            messages.error(request, "Login Failed")
+            return redirect("/login")
+        
+
+def register(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        user = User.objects.create_user(username=username, password=password)
+        user.save()
+        return redirect("/login")
+    return JsonResponse({"message": "invalid request method"})
