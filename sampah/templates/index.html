@@ -3,19 +3,22 @@
 {% block title %}LAHHGO{% endblock %}
 {% block content %}
 {% include "navbar.html" %}
-<div class="bg-blue-200 relative w-screen h-auto">
-    <img style="width: 100%" class="-right-1 absolute z-0" src="{% static 'landing_hero.png' %}" />
-    <h1 class="relative z-20">For a more sustainable future</h1>
-    <h2 class="relative z-20">lets preserve the earth together</h2>
-    <div class="relative z-20">
-        <button class="bg-white hover:bg-blue-700 text-green-500 font-bold py-2 px-4 rounded">Beli</button>
-        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Jual</button>
+<div class="bg-blue-200 relative w-full h-screen">
+    <img class=" absolute w-full" src="{% static 'landing_hero.png' %}" />
+    <div class="w-3/4 h-screen ml-10 flex flex-col justify-center">
+    <h1 style='font-size:60px; color:#4F6F52' class="font-bold w-1/2 relative z-20">For a more sustainable future</h1>
+    <h2 style='font-size:40px; color:#4F6F52' class="relative z-20 w-1/2">lets preserve the earth together</h2>
+    <br>
+    <div class="z-20 space-x-4">
+        <button style="color:#3A855D; width:149px;" class="bg-white text-lg font-bold py-2 px-2 rounded-lg shadow-md">Beli</button>
+        <button style="background-color:#4F6F52; width:149px;" class="text-white text-lg font-bold py-2 px-2 rounded-lg shadow-md">Jual</button>
+    </div>
     </div>
 </div>
 <div>
-    <h1>Produk daur ulang terlaris</h1>
+    {% comment %} <h1>Produk daur ulang terlaris</h1> {% endcomment %}
     <br/>
-    {% include "cards.html" %}
+    {% include "cards.html" with path='lego.png' %}
 
 </div>
 
