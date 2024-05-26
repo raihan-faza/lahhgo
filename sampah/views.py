@@ -184,3 +184,16 @@ def register(request):
         customer.save()
         return redirect("/shop/login")
     return render(request, "register.html", {'action_url': '/shop/register/'})
+
+
+def edit_profile(request):
+    new_alamat = request.POST.get("new_alamat")
+    new_email = request.POST.get("new_email")
+    first_name = request.POST.get("first_name")
+    last_name = request.POST.get("last_name")
+    no_telp = request.POST.get("no_telp")
+    user = User.objects.filter(id=request.user.id)
+    customer = Customer.objects.filter(user=user)
+    user.update(first_name=first_name, last_name=last_name)
+    customer.update(alamat=new_alamat, email=new_email, no_telp=no_telp)
+    return
