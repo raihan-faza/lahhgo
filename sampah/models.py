@@ -6,6 +6,7 @@ class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     points = models.IntegerField()
     alamat = models.CharField(max_length=200, default=None)
+    no_telp = models.IntegerField(default=None)
 
     def __str__(self) -> str:
         return self.user.username
@@ -42,7 +43,7 @@ class Transactions(models.Model):
     sampah = models.OneToOneField(Sampah, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
-        return self.id
+        return str(self.id)
 
 
 class InfoPenjemputan(models.Model):
