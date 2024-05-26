@@ -8,21 +8,22 @@ class Customer(models.Model):
     alamat = models.CharField(max_length=200, default=None)
 
     def __str__(self) -> str:
-        return self.user.first_name
+        return self.user.username
 
 
 class Sampah(models.Model):
-    tags = {"dry": "kering", "wet": "basah"}
+    tags = {"DRY": "KERING", "WET": "BASAH"}
     stats = {"AVL": "AVAILABLE", "SLD": "SOLD"}
-    user = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    jenis = models.CharField(max_length=200)
+    types = {"KRS": "KERTAS", "PLC": "PLASTIC", "MTL": "METAL"}
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    jenis = models.CharField(max_length=200, choices=types)
     jumlah = models.IntegerField()
     deskripsi = models.CharField(max_length=200)
     tag = models.CharField(max_length=6, choices=tags)
     status = models.CharField(max_length=8, choices=stats)
 
     def __str__(self) -> str:
-        return self.id
+        return str(self.id)
 
 
 class Invoice(models.Model):
@@ -31,7 +32,7 @@ class Invoice(models.Model):
     alamat_tujuan = models.CharField(max_length=200)
 
     def __str__(self) -> str:
-        return self.id
+        return str(self.id)
 
 
 class Transactions(models.Model):
@@ -53,4 +54,4 @@ class InfoPenjemputan(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
-        return self.customer.user.first_name
+        return self.customer.user.username

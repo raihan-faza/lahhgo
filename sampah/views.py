@@ -18,7 +18,7 @@ from django.core.serializers import serialize
 
 
 def index_sampah(request):
-    kumpulan_sampah = Sampah.objects.filter(status="AVL")
+    kumpulan_sampah = Sampah.objects.filter(status="AVAILABLE")
     kumpulan_sampah = serialize('json', kumpulan_sampah)
     return JsonResponse(
         {
@@ -116,6 +116,7 @@ def generate_point(jumlah_sampah):
     # jumlah sampah dalam satuan kg
     return jumlah_sampah * 100
 
+
 @require_POST
 def create_transaction(request):
     id_sampah = request.POST.get("id_sampah")
@@ -152,11 +153,6 @@ def create_transaction(request):
         }
     )
 
-    
-
-
-def add_point(customer, sampah):
-    return
 
 @csrf_exempt
 def login(request):
@@ -171,14 +167,17 @@ def login(request):
         else:
             messages.error(request, "Login Failed")
             return redirect("/login")
-        
+
 
 def register(request):
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
-        user = User.objects.create_user(username=username, password=password)
+        email = request.POST.get("email")
+        user = User.objects.create_user(
+            username=username, password=password, email=email)
         user.save()
+        customer = Customer(user=user, points=0, alamat="")
+        customer.save()
         return redirect("/login")
     return JsonResponse({"message": "invalid request method"})
-    
