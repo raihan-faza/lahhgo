@@ -15,6 +15,7 @@ from django.views.decorators.http import (
     require_GET
 )
 from django.core.serializers import serialize
+from django.contrib.auth import authenticate, login as auth_login
 
 
 def index_sampah(request):
@@ -161,20 +162,26 @@ def login(request):
         password = request.POST.get("password")
         user = authenticate(username=username, password=password)
         if user is not None:
-            login(request, user)
+            auth_login(request, user)
             messages.success(request, "Login Success")
-            return redirect("/")
+            return redirect("/shop/")
         else:
             messages.error(request, "Login Failed")
-            return redirect("/login")
-    return render(request, "login.html")
+            return redirect("/shop/login")
+    return render(request, "login.html", {'action_url':'/shop/login/'})
         
 def register(request):
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
-        user = User.objects.create_user(username=username, password=password)
+        email = request.POST.get("email")
+        if User.objects.filter(username=username).exists() or User.objects.filter(email=email).exists():
+            messages.error(request, "Username or email already exists")
+            return redirect("/shop/register")
+        user = User.objects.create_user(username=username, password=password, email=email)
+        customer = Customer(user=user, points=0, alamat="")
         user.save()
-        return redirect("/login")
-    return render(request, "register.html")
+        customer.save()
+        return redirect("/shop/login")
+    return render(request, "register.html", {'action_url':'/shop/register/'})
     
