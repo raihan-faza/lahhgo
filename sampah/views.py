@@ -17,12 +17,10 @@ from django.views.decorators.http import (
 from django.core.serializers import serialize
 from django.contrib.auth import authenticate, login as auth_login
 
-
 def index_sampah(request):
     kumpulan_sampah = Sampah.objects.filter(status="AVAILABLE")
     kumpulan_sampah = serialize('json', kumpulan_sampah)
     return render(request, "index.html", {"kumpulan_sampah": kumpulan_sampah})
-
 
 @require_POST
 def create_sampah(request):
