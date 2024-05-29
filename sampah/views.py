@@ -177,7 +177,7 @@ def register(request):
             return redirect("/shop/register")
         user = User.objects.create_user(
             username=username, password=password, email=email)
-        customer = Customer(user=user, points=0, alamat="")
+        customer = Customer(user=user, points=0, alamat="", no_telp="")
         user.save()
         customer.save()
         return redirect("/shop/login")
@@ -195,3 +195,7 @@ def edit_profile(request):
     user.update(first_name=first_name, last_name=last_name)
     customer.update(alamat=new_alamat, email=new_email, no_telp=no_telp)
     return
+
+
+def upload3(request):
+    return render(request, "upload3.html")

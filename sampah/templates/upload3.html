@@ -1,0 +1,117 @@
+{% extends "base.html" %} {% load static %} {% block title %}LAHHGO{% endblock%}
+{% block content %} {% include "navbar.html" %}
+<br />
+<br />
+<br />
+<div
+  style="background-color: #3a855d"
+  class="min-h-screen py-10 flex justify-center items-center"
+>
+  <div
+    class="bg-white w-[80%] grid grid-cols-2 overflow-hidden rounded-xl"
+    style="height: 100vh"
+  >
+    <div class="m-4">
+      <h1 class="text-4xl font-bold">Alamat Penjemputan</h1>
+      <h1 class="py-3">
+        Masukkan lokasi penjemputanmu secara lengkap, beserta informasi kontak
+        yang dapat dihubungi.
+      </h1>
+      <form method="post">
+        <input
+          type="text"
+          name="namaKontak"
+          placeholder="Nama Kontak"
+          class="p-2 w-full border-b-2 border-gray-200"
+        />
+        <input
+          type="text"
+          name="jalan"
+          placeholder="Jalan"
+          class="p-2 w-full border-b-2 border-gray-200"
+        />
+        <div class="flex">
+          <input
+            type="text"
+            name="kota"
+            placeholder="Kota"
+            class="p-2 mr-4 w-3/4 border-b-2 border-gray-200"
+          />
+          <input
+            type="text"
+            name="kodepos"
+            placeholder="Kode Pos"
+            class="p-2 w-1/4 border-b-2 border-gray-200"
+          />
+        </div>
+        <input
+          type="text"
+          name="nomorKontak"
+          placeholder="Nomor Kontak"
+          class="p-2 w-full border-b-2 border-gray-200"
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="E-mail"
+          class="p-2 w-full border-b-2 border-gray-200"
+        />
+        <input
+          type="text"
+          name="detailLokasi"
+          placeholder="Detail Lokasi"
+          class="p-2 w-full border-b-2 border-gray-200"
+        />
+
+        <input type="file" id="file" name="file" class="hidden" />
+
+        <label
+          for="file"
+          class="flex justify-center items-center gap-3 border-2 mt-2 border-dashed cursor-pointer border-gray-200 px-2 py-8 w-full text-sm"
+        >
+        <img src="{% static 'upload.svg' %}"/>
+          <p class="text-gray-400">Upload File Tambahan</p>
+        </label>
+        <label class="text-xs" for="file"
+          >Attach your file. File size of your documents should not exceed
+          10MB</label
+        >
+        <div class="flex text-xs mt-4">
+            <input name="checkbox" type="checkbox" class="mr-2"/>
+            Confirm If You Done
+        </div>
+        <button type="submit" class="w-full px-1 py-2 text-sm rounded-lg font-bold mt-3" style="background-color:#CBE7C8;">SUBMIT</button>
+      </form>
+      <div class="flex mt-2 justify-between">
+        <div class="flex gap-2">
+            <img src="{% static 'phone.svg' %}" />
+            <div class="text-xs">
+                <h5 class="font-bold">Phone</h5>
+                <p class="text-red-300">111 111 111</p>
+            </div>
+        </div>
+        <div class="flex gap-2">
+            <img src="{% static 'email.svg' %}" />
+            <div class="text-xs">
+                <h5 class="font-bold">E-Mail</h5>
+                <p class="text-red-300">lahhgo@company.com</p>
+            </div>
+        </div>
+        <div class="flex gap-2">
+            <img src="{% static 'email.svg' %}" />
+            <div class="text-xs">
+                <h5 class="font-bold">Helpdesk</h5>
+                <p class="text-red-300">https://helpdesk.com</p>
+            </div>
+        </div>
+      </div>
+    </div>
+    <img
+      class="p-4 flex w-full items-end"
+      src="{% static 'map.png'%}"
+      style="height: 100vh"
+    />
+  </div>
+</div>
+
+{% endblock %}
