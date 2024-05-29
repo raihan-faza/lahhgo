@@ -32,12 +32,15 @@ def create_sampah(request):
         deskripsi = request.POST.get("deskripsi")
         tag = request.POST.get("tag")
         status = request.POST.get("status")
-        image_name = request.POST.get("file_name")
-        uploaded_image = request.FILES[image_name]
+        image_name = request.POST.get("file_name") or None
+        uploaded_image = request.FILES.get(image_name) or None
         user = User.object.filter(id=request.user.id)
         sampah = Sampah(user=user, jenis=jenis, jumlah=jumlah,
                         deskripsi=deskripsi, tag=tag, status=status, foto_sampah=uploaded_image)
         sampah.save()
+        with open(f"images/{image_name}", "wb") as loc:
+            for chunk in uploaded_image.chunks():
+                loc.write(chunk)
     except:
         return JsonResponse(
             {
@@ -183,7 +186,7 @@ def register(request):
             return redirect("/shop/register")
         user = User.objects.create_user(
             username=username, password=password, email=email)
-        customer = Customer(user=user, points=0, alamat="", no_telp="")
+        customer = Customer(user=user, points=0, alamat="")
         user.save()
         customer.save()
         return redirect("/shop/login")
