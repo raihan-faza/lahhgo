@@ -22,6 +22,7 @@ class Sampah(models.Model):
     deskripsi = models.CharField(max_length=200)
     tag = models.CharField(max_length=6, choices=tags)
     status = models.CharField(max_length=8, choices=stats)
+    foto_sampah = models.ImageField(default=None, null=True, blank=True)
 
     def __str__(self) -> str:
         return str(self.id)

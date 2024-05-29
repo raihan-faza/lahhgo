@@ -17,10 +17,12 @@ from django.views.decorators.http import (
 from django.core.serializers import serialize
 from django.contrib.auth import authenticate, login as auth_login
 
+
 def index_sampah(request):
     kumpulan_sampah = Sampah.objects.filter(status="AVAILABLE")
     kumpulan_sampah = serialize('json', kumpulan_sampah)
     return render(request, "index.html", {"kumpulan_sampah": kumpulan_sampah})
+
 
 @require_POST
 def create_sampah(request):
@@ -30,9 +32,11 @@ def create_sampah(request):
         deskripsi = request.POST.get("deskripsi")
         tag = request.POST.get("tag")
         status = request.POST.get("status")
+        image_name = request.POST.get("file_name")
+        uploaded_image = request.FILES[image_name]
         user = User.object.filter(id=request.user.id)
         sampah = Sampah(user=user, jenis=jenis, jumlah=jumlah,
-                        deskripsi=deskripsi, tag=tag, status=status)
+                        deskripsi=deskripsi, tag=tag, status=status, foto_sampah=uploaded_image)
         sampah.save()
     except:
         return JsonResponse(
@@ -106,8 +110,10 @@ def show_sampah(request):
         }
     )
 
+
 def show_products(request):
     return render(request, "products.html", {})
+
 
 def generate_point(jumlah_sampah):
     # jumlah sampah dalam satuan kg
