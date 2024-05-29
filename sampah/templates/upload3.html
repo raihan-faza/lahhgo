@@ -74,6 +74,7 @@
 
         <label
           for="file"
+          id="fileLabel"
           class="flex justify-center items-center gap-3 border-2 mt-2 border-dashed cursor-pointer border-gray-200 px-2 py-8 w-full text-sm"
         >
           <img src="{% static 'upload.svg' %}" />
@@ -126,5 +127,11 @@
     />
   </div>
 </div>
-
+<script>
+  const file = document.getElementById("file");
+  file.addEventListener("change", (e) => {
+    var filename = e.target.files[0];
+    document.getElementById("fileLabel").innerHTML = filename.name;
+  });
+</script>
 {% endblock %}
