@@ -124,7 +124,7 @@ def create_transaction(request):
         sampah = Sampah.objects.filter(id=id_sampah)
         seller = Customer.objects.filter(user=sampah.user)
         invoice = Invoice(sampah=sampah, alamat_asal=seller.alamat,
-                          alamat_tujuan=buyer.alamat)
+                            alamat_tujuan=buyer.alamat)
         sampah.status = "SLD"
         invoice.save()
         transaction = Transactions(
