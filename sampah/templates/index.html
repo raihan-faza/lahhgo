@@ -3,26 +3,151 @@
 {% block title %}LAHHGO{% endblock %}
 {% block content %}
 {% include "navbar.html" %}
+<!-- For a more sustainable future -->
 <div class="bg-blue-200 relative w-full h-screen">
-    <img class=" absolute w-full" src="{% static 'landing_hero.png' %}" />
+    <img class=" absolute w-screen" src="{% static 'landing_hero.png' %}" />
     <div class="w-3/4 h-screen ml-10 flex flex-col justify-center">
-    <h1 style='font-size:60px; color:#4F6F52' class="font-bold w-1/2 relative z-20">For a more sustainable future</h1>
-    <h2 style='font-size:40px; color:#4F6F52' class="relative z-20 w-1/2">lets preserve the earth together</h2>
-    <br>
-    <div class="z-20 space-x-4">
-        <button style="color:#3A855D; width:149px;" class="bg-white text-lg font-bold py-2 px-2 rounded-lg shadow-md">Beli</button>
-        <button style="background-color:#4F6F52; width:149px;" class="text-white text-lg font-bold py-2 px-2 rounded-lg shadow-md">Jual</button>
-    </div>
+        <h1 style='font-size:60px; color:#4F6F52' class="font-bold w-1/2 relative z-20">For a more sustainable future</h1>
+        <h2 style='font-size:40px; color:#4F6F52' class="relative z-20 w-1/2">lets preserve the earth together</h2>
+        <br>
+        <div class="z-20 flex flex-row space-x-20 items-center">
+            <div class="flex   space-x-[-15px] size-12">
+                <img class="" src="{% static 'profile.png' %}" alt="Profile">
+                <img class="" src="{% static 'profile.png' %}" alt="Profile">
+                <img class="" src="{% static 'profile.png' %}" alt="Profile">
+            </div>
+            <p class="">
+                Join with <b>4600+ Team</b> and start <br> getting feedbacks right now
+            </p>
+        </div>
+        
+        <div class="z-20 space-x-4 mt-8">
+            <button style="color:#3A855D; width:149px;" class="bg-white text-lg font-bold py-2 px-2 rounded-lg shadow-md font-serif">Beli</button>
+            <button style="background-color:#4F6F52; width:149px;" class="text-white text-lg font-bold py-2 px-2 rounded-lg shadow-md font-serif">Jual</button>
+        </div>
     </div>
 </div>
-<div>
-    {% comment %} <h1>Produk daur ulang terlaris</h1> {% endcomment %}
-    <br/>
-    <div>
-    <h1 >Produk daur ulang terlaris</h1>
-    {% include "cards.html" with path='lego.png' %}
-    </div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
+<!-- Produk daur ulang terlaris -->
+<div class="z-50 bg-green-100 font-sans max-h-screen">
+    <div class="max-w-screen mx-auto py-4">
+        <h2 class=" text-center text-5xl font-semibold mt-4 mb-10 text-[#4F6F52]">Produk daur ulang terlaris</h2>
+        <div class="flex flex-row justify-center gap-12 border-y-2 py-5 border-[#4F6F52] px-4">
+            {% include 'cards.html' with path='cart.svg' %}
+            {% include 'cards.html' with path='cart.svg' %}
+            {% include 'cards.html' with path='cart.svg' %}
+            {% include 'cards.html' with path='cart.svg' %}
+        </div>
+        <h2 class="text-center text-3xl font-semibold mt-4 text-[#4F6F52]">
+            More Product >
+        </h2>
+    </div>
+</div>
+
+
+    <!-- Sampah Terdekat -->
+<div class="z-25 bg-[#4F6F52] font-sans max-h-screen">
+    <div class="max-w-screen mx-auto p-4">
+        <h2 class=" text-center text-5xl font-semibold mt-3 mb-10 text-[#FFFFFF]">Sampah terdekat</h2>
+        <div class="flex flex-row justify-center gap-12 border-y-2 py-5 border-[#fff] px-4">
+            <!-- Card 1 -->
+            <div class="flex flex-row gap-12 justify-start">
+                <div class="bg-[#D2E3C8] rounded-3xl h-128">
+                    <img class="w-250 h-250 rounded-3xl gap-6" src="{% static 'lego.png' %}" alt="">
+                    <div class="mx-4 my-3">
+                        <h3 class="font-serif text-[#4F6F52] text-xl"
+                        >
+                            Keping LAHHGO
+                        </h3>
+                        <p class="font-sans text-[#4F6F52] text-2xl font-semibold">Rp 50.000,00</p>
+                    </div>
+                    <div class="mx-4 my-3 flex flex-row justify-end gap-3">
+                        <button class="rounded-xl bg-[#fff] p-2 w-auto">
+                            <img class="size-6 " src="{% static 'cart.svg' %}" alt="cart"/>
+                        </button>
+                        <button class="bg-[#4F6F52] rounded-xl py-1 px-4 border border-gray-300 shadow-md flex items-center justify-center">
+                            <h4 class="text-center text-xl font-serif text-[#D2E3C8]">
+                                Beli
+                            </h4>
+                        </button>                        
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="flex flex-row gap-12 justify-start">
+                <div class="bg-[#D2E3C8] rounded-3xl h-128">
+                    <img class="w-250 h-250 rounded-3xl gap-6" src="{% static 'lego.png' %}" alt="">
+                    <div class="mx-4 my-3">
+                        <h3 class="font-serif text-[#4F6F52] text-xl"
+                        >
+                            Keping LAHHGO
+                        </h3>
+                        <p class="font-sans text-[#4F6F52] text-2xl font-semibold">Rp 50.000,00</p>
+                    </div>
+                    <div class="mx-4 my-3 flex flex-row justify-end gap-3">
+                        <button class="rounded-xl bg-[#fff] p-2 w-auto">
+                            <img class="size-6 " src="{% static 'cart.svg' %}" alt="cart"/>
+                        </button>
+                        <button class="bg-[#4F6F52] rounded-xl py-1 px-4 border border-gray-300 shadow-md flex items-center justify-center">
+                            <h4 class="text-center text-xl font-serif text-[#D2E3C8]">
+                                Beli
+                            </h4>
+                        </button>                        
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="flex flex-row gap-12 justify-start">
+                <div class="bg-[#D2E3C8] rounded-3xl h-128">
+                    <img class="w-250 h-250 rounded-3xl gap-6" src="{% static 'lego.png' %}" alt="">
+                    <div class="mx-4 my-3">
+                        <h3 class="font-serif text-[#4F6F52] text-xl"
+                        >
+                            Keping LAHHGO
+                        </h3>
+                        <p class="font-sans text-[#4F6F52] text-2xl font-semibold">Rp 50.000,00</p>
+                    </div>
+                    <div class="mx-4 my-3 flex flex-row justify-end gap-3">
+                        <button class="rounded-xl bg-[#fff] p-2 w-auto">
+                            <img class="size-6 " src="{% static 'cart.svg' %}" alt="cart"/>
+                        </button>
+                        <button class="bg-[#4F6F52] rounded-xl py-1 px-4 border border-gray-300 shadow-md flex items-center justify-center">
+                            <h4 class="text-center text-xl font-serif text-[#D2E3C8]">
+                                Beli
+                            </h4>
+                        </button>                        
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="flex flex-row gap-12 justify-start">
+                <div class="bg-[#D2E3C8] rounded-3xl h-128">
+                    <img class="w-250 h-250 rounded-3xl gap-6" src="{% static 'lego.png' %}" alt="">
+                    <div class="mx-4 my-3">
+                        <h3 class="font-serif text-[#4F6F52] text-xl"
+                        >
+                            Keping LAHHGO
+                        </h3>
+                        <p class="font-sans text-[#4F6F52] text-2xl font-semibold">Rp 50.000,00</p>
+                    </div>
+                    <div class="mx-4 my-3 flex flex-row justify-end gap-3">
+                        <button class="rounded-xl bg-[#fff] p-2 w-auto">
+                            <img class="size-6 " src="{% static 'cart.svg' %}" alt="cart"/>
+                        </button>
+                        <button class="bg-[#4F6F52] rounded-xl py-1 px-4 border border-gray-300 shadow-md flex items-center justify-center">
+                            <h4 class="text-center text-xl font-serif text-[#D2E3C8]">
+                                Beli
+                            </h4>
+                        </button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 class="text-center text-3xl font-semibold mt-4 text-[#ffffff]">
+            More Plastic >
+        </h2>
+    </div>
 </div>
 
 {% endblock %}
