@@ -24,6 +24,7 @@ def index_sampah(request):
     return render(request, "index.html")
 
 
+
 @require_POST
 def create_sampah(request):
     try:
