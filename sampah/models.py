@@ -6,7 +6,8 @@ class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     points = models.IntegerField()
     alamat = models.CharField(max_length=200, default=None)
-    no_telp = models.CharField(default=None, max_length=14)
+    no_telp = models.CharField(
+        default=None, max_length=14, blank=True, null=True)
 
     def __str__(self) -> str:
         return self.user.username
@@ -22,6 +23,7 @@ class Sampah(models.Model):
     deskripsi = models.CharField(max_length=200)
     tag = models.CharField(max_length=6, choices=tags)
     status = models.CharField(max_length=8, choices=stats)
+    foto_sampah = models.ImageField(default=None, null=True, blank=True)
 
     def __str__(self) -> str:
         return str(self.id)
