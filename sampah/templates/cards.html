@@ -1,23 +1,10 @@
 {% load static %}
-<div class="flex flex-row gap-12 justify-start">
-  <div class="bg-[#4F6F52] rounded-3xl h-128">
-    <img class="w-250 h-250 rounded-3xl gap-6" src="{% static 'lego.png' %}" alt="">
-    <div class="mx-4 my-3">
-        <h3 class="font-serif text-[#D2E3C8] text-xl"
-        >
-            Keping LAHHGO
-        </h3>
-        <p class="font-sans text-[#D2E3C8] text-2xl font-semibold">Rp 50.000,00</p>
-    </div>
-    <div class="mx-4 my-3 flex flex-row justify-end gap-3">
-        <button class="rounded-xl bg-[#fff] p-2 w-auto">
-            <img class="size-6 " src="{% static 'cart.svg' %}" alt="cart"/>
-        </button>
-        <button class="bg-[#D2E3C8] rounded-xl py-1 px-4 border border-gray-300 shadow-md flex items-center justify-center">
-            <h4 class="text-center text-xl font-serif text-[#4F6F52]">
-                Beli
-            </h4>
-      </button>                        
-    </div>
+<div class="card rounded-lg shadow-md" style="width: 18rem;">
+  <img class="card-img-top" src="{% static path %}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-text font-bold text-xl">Card title</h5>
+    <p class="card-text text-gray-400 text-md">@JohnDoe</p>
+    <br>
+    <p class="card-text text-sm font-semibold" style="color: #4f6f52">Klik untuk mengedit</p>
   </div>
 </div>
