@@ -1,30 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>{% block title %}LAHHGO {% endblock %}</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    {% block css %}
-    <!-- Add your global CSS files here -->
+
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>{% block title %}LAHHGO {% endblock %}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet">
+  <style>
+    .font-plus-jakarta-sans {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+  {% block css %}
+  <!-- Add your global CSS files here -->
+  {% endblock %}
+</head>
+
+<body>
+  <header>
+    <!-- Add your header here -->
+  </header>
+
+  <main>
+    {% block content %}
+    <!-- Content goes here -->
     {% endblock %}
-  </head>
-  <body>
-    <header>
-      <!-- Add your header here -->
-    </header>
+  </main>
 
-    <main>
-      {% block content %}
-      <!-- Content goes here -->
-      {% endblock %}
-    </main>
+  <footer>
+    <!-- Add your footer here -->
+  </footer>
 
-    <footer>
-      <!-- Add your footer here -->
-    </footer>
+  {% block js %}
+  <!-- Add your global JS files here -->
+  {% endblock %}
+</body>
 
-    {% block js %}
-    <!-- Add your global JS files here -->
-    {% endblock %}
-  </body>
 </html>

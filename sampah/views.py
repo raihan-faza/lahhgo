@@ -24,18 +24,17 @@ def index_sampah(request):
     return render(request, "index.html")
 
 
-
 @require_POST
 def create_sampah(request):
     try:
-        jenis = request.POST.get("jenis")
-        jumlah = request.POST.get("jumlah")
-        deskripsi = request.POST.get("deskripsi")
-        tag = request.POST.get("tag")
-        status = request.POST.get("status")
+        jenis = request.POST.get("jenis", None)
+        jumlah = request.POST.get("jumlah", None)
+        deskripsi = request.POST.get("deskripsi", None)
+        tag = request.POST.get("tag", None)
+        status = request.POST.get("status", None)
         image_name = request.POST.get("file_name") or None
         uploaded_image = request.FILES.get(image_name) or None
-        user = User.object.filter(id=request.user.id)
+        user = User.object.get(id=request.user.id)
         sampah = Sampah(user=user, jenis=jenis, jumlah=jumlah,
                         deskripsi=deskripsi, tag=tag, status=status, foto_sampah=uploaded_image)
         sampah.save()
@@ -62,7 +61,7 @@ def update_sampah(request):
         jumlah = request.POST.get("jumlah")
         deskripsi = request.POST.get("deskripsi")
         tag = request.POST.get("tag")
-        sampah = Sampah.objects.filter(id=id_sampah)
+        sampah = Sampah.objects.get(id=id_sampah)
         sampah.update(jumlah=jumlah, deskripsi=deskripsi, tag=tag)
     except:
         return JsonResponse(
@@ -82,7 +81,7 @@ def update_sampah(request):
 def delete_sampah(request):
     try:
         id_sampah = request.POST.get("id_sampah")
-        sampah = Sampah.objects.filter(id=id_sampah)
+        sampah = Sampah.objects.get(id=id_sampah)
         sampah.delete()
     except:
         return JsonResponse(
@@ -101,7 +100,7 @@ def delete_sampah(request):
 def show_sampah(request):
     id_sampah = request.GET.get("id_sampah")
     try:
-        sampah = Sampah.objects.filter(id=id_sampah)
+        sampah = Sampah.objects.get(id=id_sampah)
     except:
         return JsonResponse(
             {
@@ -127,14 +126,14 @@ def generate_point(jumlah_sampah):
 @require_POST
 def create_transaction(request):
     id_sampah = request.POST.get("id_sampah")
-    sampah = Sampah.objects.filter(id=id_sampah)
+    sampah = Sampah.objects.get(id=id_sampah)
     try:
-        user = User.objects.filter(id=request.user.id)
-        buyer = Customer.objects.filter(user=user)
-        sampah = Sampah.objects.filter(id=id_sampah)
-        seller = Customer.objects.filter(user=sampah.user)
+        user = User.objects.get(id=request.user.id)
+        buyer = Customer.objects.get(user=user)
+        sampah = Sampah.objects.get(id=id_sampah)
+        seller = Customer.objects.get(user=sampah.user)
         invoice = Invoice(sampah=sampah, alamat_asal=seller.alamat,
-                            alamat_tujuan=buyer.alamat)
+                          alamat_tujuan=buyer.alamat)
         sampah.status = "SLD"
         invoice.save()
         transaction = Transactions(
@@ -170,11 +169,11 @@ def login(request):
         if user is not None:
             auth_login(request, user)
             messages.success(request, "Login Success")
-            return redirect("/shop/")
+            return redirect("/")
         else:
             messages.error(request, "Login Failed")
-            return redirect("/shop/login")
-    return render(request, "login.html", {'action_url': '/shop/login/'})
+            return redirect("/login/")
+    return render(request, "login.html", {'action_url': '/login/'})
 
 
 def register(request):
@@ -190,8 +189,8 @@ def register(request):
         customer = Customer(user=user, points=0, alamat="")
         user.save()
         customer.save()
-        return redirect("/shop/login")
-    return render(request, "register.html", {'action_url': '/shop/register/'})
+        return redirect("/login/")
+    return render(request, "register.html", {'action_url': '/register/'})
 
 
 def edit_profile(request):
@@ -204,8 +203,12 @@ def edit_profile(request):
     customer = Customer.objects.filter(user=user)
     user.update(first_name=first_name, last_name=last_name)
     customer.update(alamat=new_alamat, email=new_email, no_telp=no_telp)
-    return
+    return redirect('/')
 
 
 def upload3(request):
     return render(request, "upload3.html")
+
+
+def about(request):
+    return render(request, 'about.html')

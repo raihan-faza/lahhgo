@@ -11,9 +11,11 @@
       {% csrf_token %}
       {% block form %}{% endblock %}
       <br>
-      <button class="w-full text-white font-semibold p-1 rounded-md" style="background-color: #3A855D;"  type="submit">{% block button %}{% endblock %}</button>
-    <br>
-    <div class="flex items-center gap-1  flex-col">{% block text %}{% endblock %}</div>
+      <button class="w-full text-white font-semibold p-1 mt-2 rounded-md" style="background-color: #3A855D;"
+        type="submit">
+        {%block button %}{% endblock %}</button>
+      <br>
+      <div class="flex items-center gap-1 flex-col ">{% block text %}{% endblock %}</div>
     </form>
   </div>
   <img style="width:30%;" src="{% static 'auth.png' %}" />
