@@ -209,3 +209,6 @@ def edit_profile(request):
 
 def upload3(request):
     return render(request, "upload3.html")
+
+def how_it_works(request):
+    return render(request, "how-it-works.html")
