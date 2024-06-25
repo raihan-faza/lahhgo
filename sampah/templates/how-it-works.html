@@ -1,73 +1,64 @@
 {% extends "base.html" %} {% load static %} {% block title %}LAHHGO{% endblock%}
 {% block content %} {% include "navbar.html" %}
 <!-- For a more sustainable future -->
-<div class="pt-28 flex flex-col items-center justify-center gap-5">
-  <h1 class="text-[48px] font-bold">How it Works</h1>
-  <p class="w-3/4  text-center text-[20px] text-[#828282]">
-    Our purpose is to create a sustainable future by providing eco-friendly
-    products and services that promote environmental stewardship and enhance the
-    well-being of our planet. We are committed to reducing our ecological
-    footprint, supporting renewable resources, and fostering a culture of
-    sustainability within our community and beyond.
-  </p>
-</div>
-<div class="flex flex-row justify-evenly items-center mt-10">
-  <div class="card rounded-lg shadow-md" style="width: 24rem">
+<div class="h-screen flex flex-col justify-center">
+  <div class="font-plus-jakarta-sans flex flex-col items-center justify-center gap-5">
+    <h1 class=" text-[48px] font-bold">How it Works</h1>
+    <p class="w-3/4  text-center text-[20px] text-[#828282]">
+      Our purpose is to create a sustainable future by providing eco-friendly
+      products and services that promote environmental stewardship and enhance the
+      well-being of our planet. We are committed to reducing our ecological
+      footprint, supporting renewable resources, and fostering a culture of
+      sustainability within our community and beyond.
+    </p>
+  </div>
+  <div class="font-plus-jakarta-sans flex flex-row justify-evenly items-center mt-10">
+    <div class="card rounded-lg shadow-md p-4" style="width: 30%">
 
-    <br>
-    <img
-      class="card-img-top w-1/2 m-auto"
-      src="{% static 'trash-collection.svg' %}"
-      alt="How it Works"
-    />
-    <div class="card-body text-center">
-      <h5 class="card-text font-bold text-[24px]">Trash Collection</h5>
       <br>
-      <p class="card-text text-gray-400 text-md">
-        By collect all of the waste items on every house in jogja to make sure
-        we use the recycle items
-      </p>
-      <br />
+      <img class="card-img-top w-1/3 m-auto" src="{% static 'trash-collection.svg' %}" alt="How it Works" />
+      <div class="card-body text-center">
+        <h5 class="card-text font-bold text-[24px]">Trash Collection</h5>
+        <br>
+        <p class="card-text text-gray-400 text-[15px] w-1/2 m-auto">
+          By collect all of the waste items on every house in jogja to make sure
+          we use the recycle items
+        </p>
+        <br />
+      </div>
     </div>
-  </div>
-  <div class="card rounded-lg shadow-md" style="width: 24rem">
-    <br>
-    <img
-      class="card-img-top w-1/2 m-auto"
-      src="{% static 'recycles-process.svg' %}"
-      alt="How it Works"
-    />
-    <div class="card-body text-center">
-      <h5 class="card-text font-bold text-[24px]">Recycle Process</h5>
+    <div class="card rounded-lg shadow-md p-4" style="width: 30%">
       <br>
-      <p class="card-text text-gray-400 text-md">
-        By collect all of the waste items on every house in jogja to make sure
-        we use the recycle items
-      </p>
-      <br />
+      <img class="card-img-top w-1/3 m-auto" src="{% static 'recycles-process.svg' %}" alt="How it Works" />
+      <div class="card-body text-center">
+        <h5 class="card-text font-bold text-[24px]">Recycle Process</h5>
+        <br>
+        <p class="card-text text-gray-400 text-[15px] w-1/2 m-auto">
+          By collect all of the waste items on every house in jogja to make sure
+          we use the recycle items
+        </p>
+        <br />
+      </div>
     </div>
-  </div>
-  <div class="card rounded-lg shadow-md" style="width: 24rem">
-    <br>
-    <img
-      class="card-img-top w-1/2 m-auto"
-      src="{% static 'ready-to-sell.svg' %}"
-      alt="How it Works"
-    />
-    <div class="card-body text-center">
-      <h5 class="card-text font-bold text-[24px]">Ready To Sell</h5>
+    <div class="card rounded-lg shadow-md p-4" style="width: 30%">
       <br>
-      <p class="card-text text-gray-400 text-md">
-        By collect all of the waste items on every house in jogja to make sure
-        we use the recycle items
-      </p>
-      <br />
+      <img class="card-img-top w-1/3 m-auto" src="{% static 'ready-to-sell.svg' %}" alt="How it Works" />
+      <div class="card-body text-center">
+        <h5 class="card-text font-bold text-[24px]">Ready To Sell</h5>
+        <br>
+        <p class="card-text text-gray-400 text-[15px] w-1/2 m-auto">
+          By collect all of the waste items on every house in jogja to make sure
+          we use the recycle items
+        </p>
+        <br />
+      </div>
     </div>
   </div>
 </div>
-  <br>
-  <br>
-  <br>
-  <br>
+
+<br>
+<br>
+<br>
+<br>
 
 {% endblock %}

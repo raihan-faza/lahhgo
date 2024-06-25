@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}{% endblock %}
 {% block content %}
-<nav style="color: #3A855D;" class="fixed font-bold text-xl mt-5 ml-10">LAHHGO</nav>
+<nav style="color: #3A855D;" class="fixed font-bold text-xl mt-5 ml-10"><a href="{% url 'index' %}">LAHHGO</a></nav>
 <div class="flex w-screen min-h-screen justify-evenly items-center">
   <div style="color: #3A855D;" style="width:20%;" class="flex flex-col h-auto">
     <h1 class="text-lg">{% block greetings %}{% endblock %}</h1>
