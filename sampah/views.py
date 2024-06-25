@@ -212,3 +212,7 @@ def upload3(request):
 
 def about(request):
     return render(request, 'about.html')
+
+
+def how_it_works(request):
+    return render(request, "how-it-works.html")

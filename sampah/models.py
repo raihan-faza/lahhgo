@@ -14,9 +14,9 @@ class Customer(models.Model):
 
 
 class Sampah(models.Model):
-    tags = {"DRY": "KERING", "WET": "BASAH"}
-    stats = {"AVL": "AVAILABLE", "SLD": "SOLD"}
-    types = {"KRS": "KERTAS", "PLC": "PLASTIC", "MTL": "METAL"}
+    tags = [("DRY","KERING"), ("WET","BASAH")]
+    stats = [("AVL", "AVAILABLE"), ("SLD", "SOLD")]
+    types = [("KRS", "KERTAS"), ("PLC", "PLASTIC"), ("MTL", "METAL")]
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     jenis = models.CharField(max_length=200, choices=types)
     jumlah = models.IntegerField()
